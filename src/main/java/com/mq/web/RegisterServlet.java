@@ -16,31 +16,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 
-@WebServlet("/loginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/registerServlet")
+public class RegisterServlet extends HttpServlet {
     private UserService service = new UserService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        //调用service查询
-        User user = service.login(username, password);
-        System.out.println(user);
-
-        //获取对应的字符输出流并设置content type
-        resp.setContentType("text/html;charset=utf-8");
-        PrintWriter writer = resp.getWriter();
-
-        //判断是否查询到
-        if (user != null) {
-            writer.write("login successfully");
-            System.out.println("login successfully");
+        if (!service.register(username, password)) {
+            resp.setContentType("text/html;charset=utf-8");
+            resp.getWriter().write("Username already exists");
         } else {
-            writer.write("login failed");
-            System.out.println("login failed");
+            resp.getWriter().write("Successfully signed up");
         }
     }
 

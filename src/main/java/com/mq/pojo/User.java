@@ -3,7 +3,7 @@ package com.mq.pojo;
 public class User {
     private Integer userId;
     private String username;
-    private String user_password;
+    private String password;
 
     public Integer getUserId() {
         return userId;
@@ -21,12 +21,12 @@ public class User {
         this.username = username;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class User {
         return "User{" +
                 "user_id=" + userId +
                 ", username='" + username + '\'' +
-                ", user_password='" + user_password + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

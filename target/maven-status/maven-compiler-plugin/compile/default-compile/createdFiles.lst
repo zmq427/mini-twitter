@@ -1,0 +1,3 @@
+com\mq\utils\SqlSessionFactoryUtils.class
+com\mq\service\UserService.class
+com\mq\web\RegisterServlet.class
