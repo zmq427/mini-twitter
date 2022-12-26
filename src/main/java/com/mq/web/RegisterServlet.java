@@ -27,9 +27,9 @@ public class RegisterServlet extends HttpServlet {
 
         if (!service.register(username, password)) {
             resp.setContentType("text/html;charset=utf-8");
-            resp.getWriter().write("Username already exists");
+            resp.getWriter().write("null");
         } else {
-            resp.getWriter().write("Successfully signed up");
+            resp.getWriter().write("{'status': 'successful'}");
         }
     }
 

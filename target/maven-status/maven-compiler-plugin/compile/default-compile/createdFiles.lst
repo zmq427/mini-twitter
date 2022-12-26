@@ -1,3 +1,5 @@
+com\mq\web\filter\LoginFilter.class
 com\mq\utils\SqlSessionFactoryUtils.class
 com\mq\service\UserService.class
 com\mq\web\RegisterServlet.class
+com\mq\web\filter\RequestFilter.class

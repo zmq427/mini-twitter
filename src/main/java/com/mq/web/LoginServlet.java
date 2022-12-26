@@ -1,5 +1,6 @@
 package com.mq.web;
 
+import com.alibaba.fastjson.JSON;
 import com.mq.mapper.UserMapper;
 import com.mq.pojo.User;
 import com.mq.service.UserService;
@@ -36,10 +37,10 @@ public class LoginServlet extends HttpServlet {
 
         //判断是否查询到
         if (user != null) {
-            writer.write("login successfully");
+            writer.write(JSON.toJSONString(user));
             System.out.println("login successfully");
         } else {
-            writer.write("login failed");
+            writer.write("null");
             System.out.println("login failed");
         }
     }

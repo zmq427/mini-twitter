@@ -17,6 +17,7 @@ public class UserService {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.select(username, password);
 
+        System.out.println(user);
         //4.释放资源
         sqlSession.close();
 
@@ -40,6 +41,7 @@ public class UserService {
         //5.释放资源
         sqlSession.close();
 
+        // 添加成功返回true
         return user == null;
     }
 }
