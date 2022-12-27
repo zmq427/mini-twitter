@@ -2,6 +2,7 @@ package com.mq.web;
 
 import com.alibaba.fastjson.JSON;
 import com.mq.mapper.UserMapper;
+import com.mq.pojo.R;
 import com.mq.pojo.User;
 import com.mq.service.UserService;
 import com.mq.utils.SqlSessionFactoryUtils;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -38,6 +40,9 @@ public class LoginServlet extends HttpServlet {
         //判断是否查询到
         if (user != null) {
             writer.write(JSON.toJSONString(user));
+            // 获取session对象
+            HttpSession session = req.getSession();
+            session.setAttribute("user", user);
             System.out.println("login successfully");
         } else {
             writer.write("null");

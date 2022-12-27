@@ -14,3 +14,6 @@
 0:0:0:0:0:0:0:1 - - [26/Dec/2022:12:22:57 +0800] "GET /Mini-Twitter/loginServlet?username=zmq&password=12345 HTTP/1.1" 200 4 http-bio-8080-exec-6 3
 0:0:0:0:0:0:0:1 - - [26/Dec/2022:12:23:11 +0800] "GET /Mini-Twitter/registerServlet?username=syk&password=234 HTTP/1.1" 200 4 http-bio-8080-exec-7 6
 0:0:0:0:0:0:0:1 - - [26/Dec/2022:12:23:32 +0800] "GET /Mini-Twitter/registerServlet?username=syk002&password=234 HTTP/1.1" 200 24 http-bio-8080-exec-8 10
+0:0:0:0:0:0:0:1 - - [26/Dec/2022:23:10:08 +0800] "GET /Mini-Twitter/loginServlet?username=zmq&password=123 HTTP/1.1" 200 35 http-bio-8080-exec-1 905
+0:0:0:0:0:0:0:1 - - [26/Dec/2022:23:11:33 +0800] "GET /Mini-Twitter/registerServlet?username=zmq&password=1234353 HTTP/1.1" 200 4 http-bio-8080-exec-3 10
+0:0:0:0:0:0:0:1 - - [26/Dec/2022:23:11:55 +0800] "GET /Mini-Twitter/registerServlet?username=Billy%20Hellington&password=1234353 HTTP/1.1" 200 24 http-bio-8080-exec-4 14
