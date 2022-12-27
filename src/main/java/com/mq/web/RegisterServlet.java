@@ -1,6 +1,8 @@
 package com.mq.web;
 
+import com.alibaba.fastjson2.JSON;
 import com.mq.mapper.UserMapper;
+import com.mq.pojo.R;
 import com.mq.pojo.User;
 import com.mq.service.UserService;
 import com.mq.utils.SqlSessionFactoryUtils;
@@ -25,11 +27,15 @@ public class RegisterServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        if (!service.register(username, password)) {
+        boolean isSuccess = service.register(username, password);
+
+        if (!isSuccess) {
             resp.setContentType("text/html;charset=utf-8");
-            resp.getWriter().write("null");
+            R r = R.error("Register failed, username already exists...");
+            resp.getWriter().write(JSON.toJSONString(r));
         } else {
-            resp.getWriter().write("{'status': 'successful'}");
+            R r = R.success("Register successfully");
+            resp.getWriter().write(JSON.toJSONString(r));
         }
     }
 
