@@ -13,9 +13,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 @WebServlet("/tweetServlet")
 public class TweetServlet extends HttpServlet {
@@ -23,18 +22,17 @@ public class TweetServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 获取请求参数
-        System.out.println(getBody(req));
-//        JSONObject jsonObject = JSON.parseObject(getBody(req));
-//        System.out.println(jsonObject);
+        String request_str = getBody(req);
+        JSONObject jsonObject = JSON.parseObject(request_str);
+        System.out.println(jsonObject);
 
-        Date date;
-        try {
-            date = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").parse("2022-12-28 11:37:50");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        String tweetText = jsonObject.getString("tweet_text");
+        Integer userId = jsonObject.getInteger("user_id");
+        String username = jsonObject.getString("username");
+        Timestamp timestamp = Timestamp.valueOf(jsonObject.getString("timestamp"));
+
         // 调用service向数据库添加数据
-        service.tweet("换个环境接空间可怜见了", 1, "zmq", date);
+        service.tweet(tweetText, userId, username, timestamp);
 
     }
 
@@ -75,7 +73,6 @@ public class TweetServlet extends HttpServlet {
         }
 
         body = stringBuilder.toString();
-        body = body.replace("\"", "\\\"");
         return body;
     }
 }

@@ -16,3 +16,9 @@
 0:0:0:0:0:0:0:1 - - [28/Dec/2022:11:46:45 +0800] "OPTIONS /Mini-Twitter/tweetServlet HTTP/1.1" 200 7 http-bio-8080-exec-1 345
 0:0:0:0:0:0:0:1 - - [28/Dec/2022:11:46:46 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 500 2307 http-bio-8080-exec-2 15
 0:0:0:0:0:0:0:1 - - [28/Dec/2022:11:47:41 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 500 5155 http-bio-8080-exec-1 1134
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:33:06 +0800] "OPTIONS /Mini-Twitter/tweetServlet HTTP/1.1" 200 7 http-bio-8080-exec-1 408
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:33:06 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 500 2285 http-bio-8080-exec-2 333
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:36:04 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 200 - http-bio-8080-exec-1 790
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:40:33 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 500 1722 http-bio-8080-exec-1 484
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:41:04 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 200 - http-bio-8080-exec-1 1314
+0:0:0:0:0:0:0:1 - - [28/Dec/2022:19:44:07 +0800] "POST /Mini-Twitter/tweetServlet HTTP/1.1" 200 - http-bio-8080-exec-1 857
