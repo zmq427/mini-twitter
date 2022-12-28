@@ -4,6 +4,11 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mq.mapper.UserMapper">
+    <resultMap id="userResultMap" type="com.mq.pojo.User">
+        <result column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+    </resultMap>
 
     <insert id="addUser">
         insert into user_account (username, password)

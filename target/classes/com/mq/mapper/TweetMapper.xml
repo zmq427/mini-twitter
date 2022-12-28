@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mq.mapper.TweetMapper">
+    <resultMap id="tweetResultMap" type="com.mq.pojo.Tweet">
+        <result column="tweet_id" property="tweetId"/>
+        <result column="tweet_body" property="tweetText"/>
+        <result column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="timestamp" property="timestamp"/>
+    </resultMap>
+
+    <insert id="addTweet">
+        insert into tweet (tweet_body, user_id, username, timestamp)
+        values (#{tweetBody}, #{userId}, #{username}, #{timestamp})
+    </insert>
+
+</mapper>

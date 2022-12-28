@@ -1,6 +1,6 @@
 package com.mq.web;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import com.mq.pojo.R;
 
 import javax.servlet.ServletException;
