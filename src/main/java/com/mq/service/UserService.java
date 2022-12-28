@@ -6,6 +6,8 @@ import com.mq.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import java.util.List;
+
 public class UserService {
     SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
 
@@ -44,4 +46,38 @@ public class UserService {
         // 添加成功返回true
         return user == null;
     }
+
+    public void follow(Integer follower_id, Integer followee_id) {
+        //2.获取sqlSession对象，用它来执行sql
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //3.获取UserMapper接口的代理对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.follow(follower_id, followee_id);
+
+        sqlSession.commit();
+
+        sqlSession.close();
+    }
+
+    public void unfollow(Integer follower_id, Integer followee_id) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.unfollow(follower_id, followee_id);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    public List<User> getUsers() {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = userMapper.selectAll();
+
+        sqlSession.close();
+        return users;
+    }
+
 }

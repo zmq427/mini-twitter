@@ -17,4 +17,10 @@
         values (#{tweetBody}, #{userId}, #{username}, #{timestamp})
     </insert>
 
+    <select id="getTweets" resultType="com.mq.pojo.Tweet" resultMap="tweetResultMap">
+        select tweet.tweet.username, tweet.tweet_body, tweet.timestamp
+        from tweet, follow
+        where tweet.user_id = follow.followee_id and #{userId} = follow.follower_id
+    </select>
+
 </mapper>

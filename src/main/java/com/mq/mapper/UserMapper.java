@@ -13,4 +13,8 @@ public interface UserMapper {
     User selectByUsername(String username);
 
     void addUser(@Param("username") String username, @Param("password") String password);
+    void follow(@Param("followerId") Integer follower_id, @Param("followeeId") Integer followee_id);
+
+    void unfollow(@Param("followerId") Integer follower_id, @Param("followeeId") Integer followee_id);
+
 }

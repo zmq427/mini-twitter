@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 public class TweetService {
     SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
@@ -27,5 +28,18 @@ public class TweetService {
 
         //5.释放资源
         sqlSession.close();
+    }
+
+    public List<Tweet> getTweets(Integer userId, String username) {
+        //2.获取sqlSession对象，用它来执行sql
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //3.获取UserMapper接口的代理对象
+        TweetMapper tweetMapper = sqlSession.getMapper(TweetMapper.class);
+        List<Tweet> resultTweets = tweetMapper.getTweets(userId, username);
+
+        sqlSession.close();
+
+        return resultTweets;
     }
 }

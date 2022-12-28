@@ -2,6 +2,7 @@ package com.mq.web;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import com.mq.pojo.R;
 import com.mq.service.TweetService;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Timestamp;
+
+import static com.mq.utils.RequestBodyParser.getBody;
 
 
 @WebServlet("/tweetServlet")
@@ -33,46 +36,10 @@ public class TweetServlet extends HttpServlet {
 
         // 调用service向数据库添加数据
         service.tweet(tweetText, userId, username, timestamp);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doGet(req, resp);
-    }
-
-    public static String getBody(HttpServletRequest request)  {
-
-        String body = null;
-        StringBuilder stringBuilder = new StringBuilder();
-        BufferedReader bufferedReader = null;
-
-        try {
-            InputStream inputStream = request.getInputStream();
-            if (inputStream != null) {
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                char[] charBuffer = new char[128];
-                int bytesRead = -1;
-                while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
-                    stringBuilder.append(charBuffer, 0, bytesRead);
-                }
-            } else {
-                stringBuilder.append("");
-            }
-        } catch (IOException ex) {
-            // throw ex;
-            return "";
-        } finally {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException ex) {
-
-                }
-            }
-        }
-
-        body = stringBuilder.toString();
-        return body;
     }
 }

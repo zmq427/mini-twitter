@@ -6,8 +6,10 @@ F:\workspace\mini-twitter\src\main\java\com\mq\mapper\TweetMapper.java
 F:\workspace\mini-twitter\src\main\java\com\mq\web\filter\LoginFilter.java
 F:\workspace\mini-twitter\src\main\java\com\mq\pojo\User.java
 F:\workspace\mini-twitter\src\main\java\com\mq\service\TweetService.java
+F:\workspace\mini-twitter\src\main\java\com\mq\web\FollowServlet.java
 F:\workspace\mini-twitter\src\main\java\com\mq\pojo\R.java
 F:\workspace\mini-twitter\src\main\java\com\mq\web\RegisterServlet.java
+F:\workspace\mini-twitter\src\main\java\com\mq\web\GetUsersServlet.java
 F:\workspace\mini-twitter\src\main\java\com\mq\web\LogoutServlet.java
 F:\workspace\mini-twitter\src\main\java\com\mq\mapper\UserMapper.java
 F:\workspace\mini-twitter\src\main\java\com\mq\service\UserService.java
