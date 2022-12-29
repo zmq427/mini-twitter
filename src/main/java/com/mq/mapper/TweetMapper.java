@@ -10,5 +10,5 @@ public interface TweetMapper {
     void addTweet(@Param("tweetBody") String tweetBody, @Param("userId") Integer userId,
                    @Param("username") String username, @Param("timestamp") Timestamp timestamp);
 
-    List<Tweet> getTweets(@Param("userId") Integer userId, @Param("username") String username);
+    List<Tweet> getTweets(@Param("userId") Integer userId);
 }

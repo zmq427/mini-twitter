@@ -30,13 +30,13 @@ public class TweetService {
         sqlSession.close();
     }
 
-    public List<Tweet> getTweets(Integer userId, String username) {
+    public List<Tweet> getTweets(Integer userId) {
         //2.获取sqlSession对象，用它来执行sql
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         //3.获取UserMapper接口的代理对象
         TweetMapper tweetMapper = sqlSession.getMapper(TweetMapper.class);
-        List<Tweet> resultTweets = tweetMapper.getTweets(userId, username);
+        List<Tweet> resultTweets = tweetMapper.getTweets(userId);
 
         sqlSession.close();
 

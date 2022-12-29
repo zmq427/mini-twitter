@@ -18,9 +18,17 @@
     </insert>
 
     <select id="getTweets" resultType="com.mq.pojo.Tweet" resultMap="tweetResultMap">
-        select tweet.tweet.username, tweet.tweet_body, tweet.timestamp
-        from tweet, follow
-        where tweet.user_id = follow.followee_id and #{userId} = follow.follower_id
+        SELECT
+            tweet.username,
+            tweet.tweet_body,
+            tweet.TIMESTAMP
+        FROM
+            tweet,
+            follow
+        WHERE
+            #{userId} = follow.follower_id
+            AND tweet.user_id = follow.followee_id
+            ORDER BY tweet.TIMESTAMP DESC
     </select>
 
 </mapper>

@@ -36,4 +36,10 @@
         select * from user_account
         where username = #{username}
     </select>
+    <select id="selectFollowed" resultType="Integer">
+        SELECT followee_id
+        FROM user_account LEFT JOIN follow
+        ON follow.follower_id = user_account.user_id
+        WHERE user_id = #{userId}
+    </select>
 </mapper>

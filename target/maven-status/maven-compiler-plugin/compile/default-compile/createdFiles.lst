@@ -7,6 +7,7 @@ com\mq\web\FollowServlet.class
 com\mq\web\TweetServlet.class
 com\mq\pojo\R.class
 com\mq\web\filter\LoginFilter.class
+com\mq\pojo\UserWithStatus.class
 com\mq\utils\RequestBodyParser.class
 com\mq\utils\SqlSessionFactoryUtils.class
 com\mq\mapper\TweetMapper.class

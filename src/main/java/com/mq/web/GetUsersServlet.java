@@ -3,6 +3,7 @@ package com.mq.web;
 import com.alibaba.fastjson2.JSON;
 import com.mq.pojo.R;
 import com.mq.pojo.User;
+import com.mq.pojo.UserWithStatus;
 import com.mq.service.UserService;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,9 @@ public class GetUsersServlet extends HttpServlet {
     private UserService service = new UserService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> users = service.getUsers();
+        Integer followerId = Integer.parseInt(req.getParameter("followerId"));
+        List<UserWithStatus> users = service.getUsers(followerId);
+
         R r;
         if (users != null) {
             r = R.success(users);

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserMapper {
     List<User> selectAll();
-
+    List<Integer> selectFollowed(@Param("userId") Integer userId);
     User select(@Param("username") String username, @Param("password") String password);
 
     User selectByUsername(String username);
